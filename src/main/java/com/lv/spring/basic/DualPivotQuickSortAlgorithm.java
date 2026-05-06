@@ -1,5 +1,8 @@
 package com.lv.spring.basic;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DualPivotQuickSortAlgorithm implements SortAlgorithm {
 
     public int[] sort(int[] numbers) {

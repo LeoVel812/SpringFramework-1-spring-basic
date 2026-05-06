@@ -5,7 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
- 
+import org.springframework.context.ConfigurableApplicationContext;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,7 +16,9 @@ public class SpringBasicApplication implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(SpringBasicApplication.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBasicApplication.class, args);
+        ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringBasicApplication.class, args);
+        BinarySearchImpl binarySearchBean = applicationContext.getBean(BinarySearchImpl.class);
+        log.info("using Spring Dependency Injection to run the BinarySearchImpl: {}", binarySearchBean.binarySearch(new int[]{5, 7, 93, 1, 9, 70}, 9));
     }
 
     @Override
