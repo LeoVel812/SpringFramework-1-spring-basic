@@ -12,12 +12,12 @@ public class BinarySearchImpl {
 
     // Field injection:
     // @Autowired
-    private final SortAlgorithm bubbleSortAlgorithm;
+    private final SortAlgorithm sortAlgorithm;
 
     // Constructor injection:
 //    @Autowired // if only one constructor, the annotation can be omitted
-    public BinarySearchImpl(SortAlgorithm bubbleSortAlgorithm) {
-        this.bubbleSortAlgorithm = bubbleSortAlgorithm;
+    public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
+        this.sortAlgorithm = sortAlgorithm;
     }
     // Setter injection:
     // @Autowired
@@ -29,8 +29,8 @@ public class BinarySearchImpl {
     public int binarySearch(int[] arr, int target) {
         //First sort the array, but with no tied algorithm:
         log.info("input array before being sorted: {}", Arrays.toString(arr));
-        int[] sortedNumbers = bubbleSortAlgorithm.sort(arr);
-        log.info("sortAlgorithm used: {}", bubbleSortAlgorithm.getClass().getSimpleName());
+        int[] sortedNumbers = sortAlgorithm.sort(arr);
+        log.info("sortAlgorithm used: {}", sortAlgorithm.getClass().getSimpleName());
         log.info("Sorted array: {}", Arrays.toString(sortedNumbers));
 
         // search logic:
