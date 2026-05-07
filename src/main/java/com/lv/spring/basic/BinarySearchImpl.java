@@ -2,6 +2,7 @@ package com.lv.spring.basic;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -11,14 +12,14 @@ public class BinarySearchImpl {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     // Field injection:
-    // @Autowired
     private final SortAlgorithm sortAlgorithm;
 
     // Constructor injection:
-//    @Autowired // if only one constructor, the annotation can be omitted
-    public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
+    // Another way for multiple bean candidates, using  @Qualifier
+    public BinarySearchImpl(@Qualifier("quick") SortAlgorithm sortAlgorithm) {
         this.sortAlgorithm = sortAlgorithm;
     }
+
     // Setter injection:
     // @Autowired
 //    public void setSortAlgorithm(SortAlgorithm sortAlgorithm) {
