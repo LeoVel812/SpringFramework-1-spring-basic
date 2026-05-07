@@ -17,7 +17,11 @@ public class SpringBasicApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringBasicApplication.class, args);
+        //Bean scope: by default it's a singleton bean
         BinarySearchImpl binarySearchBean = applicationContext.getBean(BinarySearchImpl.class);
+        BinarySearchImpl binarySearchBean2 = applicationContext.getBean(BinarySearchImpl.class);
+        log.info("bean1: {}", binarySearchBean);
+        log.info("bean2: {}", binarySearchBean2);
         log.info("using Spring Dependency Injection to run the BinarySearchImpl: {}", binarySearchBean.binarySearch(new int[]{5, 7, 93, 1, 9, 70}, 9));
     }
 

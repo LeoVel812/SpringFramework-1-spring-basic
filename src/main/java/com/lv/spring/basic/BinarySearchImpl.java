@@ -3,11 +3,15 @@ package com.lv.spring.basic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Component
+//@Scope("prototype") // to create a new bean every time it's requested
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // to create a new bean every time it's requested
 public class BinarySearchImpl {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
