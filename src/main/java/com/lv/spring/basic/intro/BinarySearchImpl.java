@@ -1,5 +1,7 @@
 package com.lv.spring.basic.intro;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -55,6 +57,21 @@ public class BinarySearchImpl {
             }
         }
         return -1; // Target not found
+    }
+
+    // As soon as this currently bean is created its dependencies are initialized,
+    // this method will be called
+    @PostConstruct
+    public void postConstruct() {
+        log.info("postConstruct of: {}", this.getClass().getSimpleName());
+    }
+
+    // Just before this bean is removed from the Container
+    // this method will be called
+    @PreDestroy
+    public void preDestroy() {
+        log.info("preDestroy of: {}", this.getClass().getSimpleName());
+
     }
 
 }
