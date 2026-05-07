@@ -1,5 +1,9 @@
 package com.lv.spring.basic;
 
+import com.lv.spring.basic.intro.BinarySearchImpl;
+import com.lv.spring.basic.intro.BubbleSortAlgorithm;
+import com.lv.spring.basic.intro.DualPivotQuickSortAlgorithm;
+import com.lv.spring.basic.intro.SortAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
