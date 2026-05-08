@@ -43,4 +43,15 @@ public class SomeCdiBusiness {
     public void preDestroy() {
         log.info("preDestroy of: {}", this.getClass().getSimpleName());
     }
+
+    public int findGreatest() {
+        int greatest = Integer.MIN_VALUE;
+        int[] data = someCdiDao.getData();
+        for (int value : data) {
+            if (value > greatest) {
+                greatest = value;
+            }
+        }
+        return greatest;
+    }
 }
